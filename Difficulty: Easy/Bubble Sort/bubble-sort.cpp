@@ -10,18 +10,30 @@ using namespace std;
 class Solution {
   public:
     // Function to sort the array using bubble sort algorithm.
-    void bubbleSort(vector<int>& arr) {
-        // Your code here
-        int n =arr.size();
-        for(int i=n-1;i>=1;i--){
-            for(int j=0;j<=i-1;j++){
-                if(arr[j]>arr[j+1]){
-                    int temp =arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
-                }
+    void recursiveBubble(vector<int>& arr,int n){
+        
+        if(n<=1){
+            return;
+        }
+        
+        for(int i=0;i<n-1;i++){
+            if(arr[i]>arr[i+1]){
+                int temp = arr[i+1];
+                arr[i+1] =arr[i];
+                arr[i] =temp;
             }
         }
+        
+        recursiveBubble(arr,n-1);
+        
+    }
+    
+    
+    
+    void bubbleSort(vector<int>& arr) {
+        // Your code here
+        recursiveBubble(arr,arr.size());
+        
     }
 };
 
