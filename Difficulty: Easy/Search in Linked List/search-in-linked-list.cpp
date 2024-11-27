@@ -28,15 +28,20 @@ class Solution {
     // Function to count nodes of a linked list.
     bool searchKey(int n, struct Node* head, int key) {
         // Code here
-        while(head!=NULL){
-            if(head->data==key){
+        if(head==NULL){
+            return false;
+        }
+        
+        Node*temp=head;
+        while(temp->next!=NULL){
+            if(temp->data==key){
                 return true;
             }
-            
-            head = head->next;
+            temp=temp->next;
         }
+        
         return false;
-}
+    }
 };
 
 
@@ -63,7 +68,9 @@ int main() {
         cin >> key;
         Solution ob;
         cout << ob.searchKey(n, head, key) << endl;
-    }
+    
+cout << "~" << "\n";
+}
     return 0;
 }
 // } Driver Code Ends
