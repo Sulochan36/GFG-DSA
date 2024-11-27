@@ -37,18 +37,21 @@ class Solution {
   public:
     Node *insertAtEnd(Node *head, int x) {
         // Code here
-         Node* newNode = new Node(x);
-        if (head == NULL) {
+        
+        Node* newNode = new Node(x);
+        
+        if(head==NULL){
             return newNode;
         }
-        Node* it = head;
-       
-        while(it->next!=NULL){
-            it =it->next;
+        
+        Node* temp =head;
+        while(temp->next!=NULL){
+            temp = temp->next;
         }
-        it->next = newNode;
+        
+        temp->next = newNode;
         return head;
-    }    
+    }
 };
 
 
@@ -90,8 +93,8 @@ int main() {
         Solution ob;
         Node* ans = ob.insertAtEnd(head, x);
         printList(ans);
+        cout << "~\n";
     }
-
     return 0;
 }
 // } Driver Code Ends
